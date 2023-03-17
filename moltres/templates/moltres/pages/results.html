@@ -1,0 +1,22 @@
+{% extends 'global/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% translate 'Moltres - Search Results' %}{% endblock title %} 
+{% block content %}
+
+    {% include 'global/partials/messages.html' %}
+    <div class="main-content main-content-list container">
+        <div class="text-wrapper">
+            <a href="{% url 'moltres:search' %}"><</a>
+            <h2>Moltres - Search Results</h2>
+                <ul>
+                    {% for pokemon in object_list %}
+                        <li>{{ pokemon.name }}</li>
+                    {% empty %}
+                        <li>No matches found.</li>
+                    {% endfor %}
+                </ul>
+        </div>
+    </div>
+{% endblock content %}

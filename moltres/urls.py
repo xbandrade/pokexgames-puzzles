@@ -1,0 +1,15 @@
+from django.urls import path
+
+from . import views
+
+app_name = 'moltres'
+
+urlpatterns = [
+    path('', views.MoltresHome.as_view(), name='home'),
+    path('moltres/search/',
+         views.MoltresPokemonSearch.as_view(),
+         name='search'),
+    path('moltres/results/',
+         views.MoltresSearchResults.as_view(),
+         name='results'),
+]

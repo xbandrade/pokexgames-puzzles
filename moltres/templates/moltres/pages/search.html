@@ -1,0 +1,23 @@
+{% extends 'global/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% translate 'Moltres Pokémon Search' %}{% endblock title %} 
+{% block content %}
+
+    {% include 'global/partials/messages.html' %}
+    <div class="main-content main-content-list container">
+        <div class="text-wrapper">
+            <h2>Moltres - Pokémon Search</h2>
+                <form method="POST" action="{% url 'moltres:search' %}">
+                    {% csrf_token %}
+                    <div class="char-form">
+                        {% for char in form %}
+                            {{ char }}
+                        {% endfor %}
+                    </div>
+                    <button type="submit">Search</button>
+                </form>
+        </div>
+    </div>
+{% endblock content %}
