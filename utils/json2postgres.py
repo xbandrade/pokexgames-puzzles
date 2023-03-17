@@ -14,41 +14,41 @@ def create_table():
         user='postgres',
         password=os.environ.get('DB_PASSWORD')
     )
-    cur = conn.cursor()
-    cur.execute(
+    cursor = conn.cursor()
+    cursor.execute(
         'SELECT EXISTS (SELECT FROM information_schema.tables WHERE table_name=%s)',  # noqa
         ('pokedex',)
     )
-    if not cur.fetchone()[0]:
-        cur.execute("""
+    if not cursor.fetchone()[0]:
+        cursor.execute("""
             CREATE TABLE pokedex (
                 id SERIAL PRIMARY KEY,
                 name TEXT NOT NULL
             )
         """)
     conn.commit()
-    cur.close()
+    cursor.close()
     conn.close()
 
 
 def insert_pokemon_data(pokedex):
-    connection = psycopg2.connect(
+    conn = psycopg2.connect(
         host='localhost',
         database='pokemon-data',
         user='postgres',
         password=os.environ.get('DB_PASSWORD')
     )
-    curr = connection.cursor()
+    cursor = conn.cursor()
     for entry in pokedex:
         pokemon = entry['name']['english']
         pokedex_number = entry['id']
-        curr.execute(
+        cursor.execute(
             'INSERT INTO pokedex (name, id) VALUES (%s, %s)',
             (pokemon, pokedex_number),
         )
-    connection.commit()
-    curr.close()
-    connection.close()
+    conn.commit()
+    cursor.close()
+    conn.close()
 
 
 if __name__ == '__main__':
