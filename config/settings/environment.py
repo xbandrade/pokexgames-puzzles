@@ -12,7 +12,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'INSECURE')
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.vercel.app', 'localhost']
 
 ROOT_URLCONF = 'config.urls'
 
