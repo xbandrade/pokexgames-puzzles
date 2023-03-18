@@ -185,6 +185,7 @@
         align-self: left;
     }
 
+    .flute-char-form,
     .char-form {
         width: 5rem;
         height: 5rem;
@@ -222,3 +223,32 @@
         filter: brightness(.8);
     }
     
+    .image-container {
+        position: relative;
+    }
+    
+    .image-text {
+        position: absolute;
+        transition: opacity 0.5s;
+        color: black;
+        font-size: 70px;
+        font-weight: 900;
+        text-shadow:
+            -1px -1px 0 white,
+            1px -1px 0 white,
+            -1px 1px 0 white,
+            1px 1px 0 white;
+        animation: blink-and-move-up 2s;
+    }
+    
+    @keyframes blink-and-move-up {
+        0% { opacity: .8; top: 0; }
+        60% { opacity: 0; top: 0; }
+        100% { opacity: 0; top: 0; }
+    }
+    
+    .flex-container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }

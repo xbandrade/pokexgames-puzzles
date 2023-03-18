@@ -8,7 +8,7 @@ from .forms import PokemonNameForm
 
 
 class MoltresHome(View):
-    template_name = 'moltres/pages/home.html'
+    template_name = 'global/pages/home.html'
 
     def get(self, request):
         context = {
@@ -51,7 +51,7 @@ class MoltresPokemonSearch(FormView):
                 else:
                     counter += 1
             regex += '.*'
-            matches = Pokemon.objects.filter(name__regex=regex)
+            matches = Pokemon.objects.filter(name__iregex=regex)
             request.session['matches'] = [match.id for match in matches]
             return redirect('moltres:results')
         else:

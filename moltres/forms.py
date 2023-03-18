@@ -3,7 +3,7 @@ from django import forms
 from .models import Pokemon
 
 
-class PokemonNameForm(forms.Form):
+class PokemonNameForm(forms.ModelForm):
     for i in range(10):
         locals()[f'character_{i}'] = forms.CharField(
             widget=forms.TextInput(attrs={
@@ -14,6 +14,7 @@ class PokemonNameForm(forms.Form):
         )
 
     class Meta:
+        model = Pokemon
         fields = [f'character_{i}' for i in range(10)]
 
     def clean(self):

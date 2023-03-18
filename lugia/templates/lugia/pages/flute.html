@@ -1,0 +1,32 @@
+{% extends 'global/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% translate 'Lugia Flute' %}{% endblock title %} 
+{% block content %}
+
+    {% include 'global/partials/messages.html' %}
+    <div class="main-content main-content-list container">
+        <div class="text-wrapper">
+            <h2>Lugia Flute</h2>
+            <div class="flex-container">
+                <div class="image-container">
+                    <img src="{% static 'global/img/flute.png' %}" alt="Lugia Flute" width="100%">
+                    <div class="image-text"></div>
+                </div>
+                <button>Start</button>
+                <form method="POST" action="{% url 'lugia:flute' %}">
+                    {% csrf_token %}
+                    <div class="flute-char-form">
+                        {{ form.as_p }}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.notes = {{ notes|safe }};
+    </script>
+    <script src="{% static 'global/js/update.js' %}"></script>
+    <audio src="{% static 'global/music/lugias_song.mp3' %}" autoplay></audio>
+{% endblock content %}
