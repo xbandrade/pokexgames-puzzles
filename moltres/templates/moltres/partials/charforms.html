@@ -1,0 +1,11 @@
+{% load i18n %}
+
+<form method="POST" action="{% url 'moltres:search' %}">
+    {% csrf_token %}
+    <div class="char-form">
+        {% for char in form %}
+            {{ char }}
+        {% endfor %}
+    </div>
+    <button type="submit">Search</button>
+</form>

@@ -9,15 +9,7 @@
     <div class="main-content main-content-list container">
         <div class="text-wrapper">
             <h2>Moltres - Pokémon Search</h2>
-                <form method="POST" action="{% url 'moltres:search' %}">
-                    {% csrf_token %}
-                    <div class="char-form">
-                        {% for char in form %}
-                            {{ char }}
-                        {% endfor %}
-                    </div>
-                    <button type="submit">Search</button>
-                </form>
+            {% include 'moltres/partials/charforms.html' %}
         </div>
     </div>
 {% endblock content %}

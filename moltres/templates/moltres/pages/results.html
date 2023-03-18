@@ -10,13 +10,14 @@
         <div class="text-wrapper">
             <a href="{% url 'moltres:search' %}"><</a>
             <h2>Moltres - Search Results</h2>
-                <ul>
-                    {% for pokemon in object_list %}
-                        <li>{{ pokemon.name }}</li>
-                    {% empty %}
-                        <li>No matches found.</li>
-                    {% endfor %}
-                </ul>
+            {% include 'moltres/partials/charforms.html' %}
+            <ul>
+                {% for pokemon in object_list %}
+                    <li>{{ pokemon.name }}</li>
+                {% empty %}
+                    <li>No matches found.</li>
+                {% endfor %}
+            </ul>
         </div>
     </div>
 {% endblock content %}

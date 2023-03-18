@@ -65,3 +65,8 @@ class MoltresSearchResults(ListView):
     def get_queryset(self):
         matches = self.request.session.get('matches', [])
         return self.model.objects.filter(id__in=matches)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = PokemonNameForm()
+        return context
