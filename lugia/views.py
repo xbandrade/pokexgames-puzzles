@@ -1,15 +1,9 @@
 import random
 
 from django.shortcuts import render
-from django.template.defaulttags import register
 from django.views.generic import View
 
 from lugia.forms import LugiaFluteEntry
-
-
-@register.filter
-def multiply(value, arg):
-    return value * arg
 
 
 class LugiaFlute(View):

@@ -17,11 +17,11 @@ def create_table():
     cursor = conn.cursor()
     cursor.execute(
         'SELECT EXISTS (SELECT FROM information_schema.tables WHERE table_name=%s)',  # noqa
-        ('pokedex',)
+        ('moltres_pokemon',)
     )
     if not cursor.fetchone()[0]:
         cursor.execute("""
-            CREATE TABLE pokedex (
+            CREATE TABLE moltres_pokemon (
                 id SERIAL PRIMARY KEY,
                 name TEXT NOT NULL
             )
@@ -43,7 +43,7 @@ def insert_pokemon_data(pokedex):
         pokemon = entry['name']['english']
         pokedex_number = entry['id']
         cursor.execute(
-            'INSERT INTO pokedex (name, id) VALUES (%s, %s)',
+            'INSERT INTO moltres_pokemon (name, id) VALUES (%s, %s)',
             (pokemon, pokedex_number),
         )
     conn.commit()

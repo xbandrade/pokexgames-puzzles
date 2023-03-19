@@ -1,3 +1,5 @@
+from collections import defaultdict
+
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.views.generic import FormView, ListView, View
@@ -64,7 +66,11 @@ class MoltresSearchResults(ListView):
 
     def get_queryset(self):
         matches = self.request.session.get('matches', [])
-        return self.model.objects.filter(id__in=matches)
+        pokemon_list = self.model.objects.filter(id__in=matches)
+        results = defaultdict(lambda: [])
+        for pokemon in pokemon_list:
+            results[len(pokemon.name)].append(pokemon)
+        return results
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

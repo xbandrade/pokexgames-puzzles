@@ -1,23 +1,35 @@
 {% extends 'global/base.html' %}
 {% load static %}
 {% load i18n %}
+{% load sort_keys %}
+{% load get_item %}
 
 {% block title %}{% translate 'Moltres - Search Results' %}{% endblock title %} 
 {% block content %}
-
     {% include 'global/partials/messages.html' %}
     <div class="main-content main-content-list container">
         <div class="text-wrapper">
             <a href="{% url 'moltres:search' %}"><</a>
-            <h2>Moltres - Search Results</h2>
             {% include 'moltres/partials/charforms.html' %}
-            <ul>
-                {% for pokemon in object_list %}
-                    <li>{{ pokemon.name }}</li>
-                {% empty %}
-                    <li>No matches found.</li>
-                {% endfor %}
-            </ul>
+            <h2>Moltres - Search Results</h2>
+            <div class="results-container">
+                {% if object_list %}
+                    {% for name_length in object_list|sort_keys %}
+                        <div class="column">
+                            <h3>{{ name_length }} letters</h3>
+                            <ul>
+                                {% with pokemon_list=object_list|get_item:name_length %}
+                                    {% for pokemon in pokemon_list %}
+                                        <li>{{ pokemon.name }}</li>
+                                    {% endfor %}
+                                {% endwith %}
+                            </ul>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>No matches found.</p>
+                {% endif %}
+            </div>
         </div>
     </div>
 {% endblock content %}
