@@ -3,22 +3,19 @@ import random
 from django.shortcuts import render
 from django.views.generic import View
 
-from lugia.forms import LugiaFluteEntry
-
 
 class LugiaFlute(View):
     template_name = 'lugia/pages/flute.html'
-    form_class = LugiaFluteEntry
 
     def get(self, request, *args, **kwargs):
         notes = [
             'A', 'B', 'C', 'D', 'E', 'F', 'G', 'A#', 'C#', 'D#', 'F#', 'G#'
         ]
-        notes_sequence = random.choices(notes, k=50)
+        weights = [1] * 7 + [.2] * 5
+        notes_sequence = ['3', '2', '1']
+        notes_sequence += random.choices(notes, weights=weights, k=50)
         context = {
-            'range': range(5),
             'notes': notes_sequence,
-            'form': self.form_class
         }
         return render(
             self.request,

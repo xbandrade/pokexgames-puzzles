@@ -14,13 +14,7 @@
                     <img src="{% static 'global/img/flute.png' %}" alt="Lugia Flute" width="100%">
                     <div class="image-text"></div>
                 </div>
-                <button>Start</button>
-                <form method="POST" action="{% url 'lugia:flute' %}">
-                    {% csrf_token %}
-                    <div class="flute-char-form">
-                        {{ form.as_p }}
-                    </div>
-                </form>
+                <button id="play-button">{% translate 'Play!' %}</button>
             </div>
         </div>
     </div>
@@ -28,5 +22,5 @@
         window.notes = {{ notes|safe }};
     </script>
     <script src="{% static 'global/js/update.js' %}"></script>
-    <audio src="{% static 'global/music/lugias_song.mp3' %}" autoplay></audio>
+    <audio id="audio-element" src="{% static 'global/music/lugias_song.mp3' %}"></audio>
 {% endblock content %}
