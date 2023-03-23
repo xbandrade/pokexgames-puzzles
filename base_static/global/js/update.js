@@ -151,7 +151,7 @@ function updateImageText() {
 				promiseTimeout = setTimeout(() => {
 					document.removeEventListener('keypress', handleKeyPress);
 					reject(new Error('Timeout'));
-				}, Math.min(1000, currDelay));
+				}, Math.min(800, currDelay));
 			});
 				
 			keyPressPromise
