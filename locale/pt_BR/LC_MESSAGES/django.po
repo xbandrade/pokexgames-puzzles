@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-23 12:27-0300\n"
+"POT-Creation-Date: 2023-03-23 14:00-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,9 +45,18 @@ msgstr "Início"
 
 #: .\base_templates\global\pages\home.html:14
 #: .\lugia\templates\lugia\pages\flute.html:5
+#: .\lugia\templates\lugia\pages\flute.html:11
 #: .\lugia\templates\lugia\pages\tutorial.html:5
 msgid "Lugia Flute"
 msgstr "Lugia Flauta"
+
+#: .\base_templates\global\partials\header.html:8
+msgid "PokeXGames Puzzles"
+msgstr "PokeXGames Puzzles"
+
+#: .\base_templates\global\partials\header.html:16
+msgid "Tutorial"
+msgstr "Tutorial"
 
 #: .\config\settings\i18n.py:21
 msgid "English"
@@ -118,12 +127,31 @@ msgid "</br>Good luck, Chosen One!"
 msgstr "</br>Boa sorte, Escolhido!"
 
 #: .\moltres\templates\moltres\pages\results.html:7
+#: .\moltres\templates\moltres\pages\results.html:14
 msgid "Moltres - Search Results"
 msgstr "Moltres - Resultados da Busca"
+
+#: .\moltres\templates\moltres\pages\results.html:19
+msgid "letters"
+msgstr "letras"
+
+#: .\moltres\templates\moltres\pages\results.html:30
+msgid "No matches found"
+msgstr "Nenhum resultado encontrado"
 
 #: .\moltres\templates\moltres\pages\search.html:5
 msgid "Moltres Pokémon Search"
 msgstr "Moltres Pokémon Busca"
+
+#: .\moltres\templates\moltres\pages\search.html:11
+#, fuzzy
+#| msgid "Moltres Pokémon Search"
+msgid "Moltres - Pokémon Search"
+msgstr "Moltres Pokémon Busca"
+
+#: .\moltres\templates\moltres\partials\charforms.html:10
+msgid "Search"
+msgstr "Busca"
 
 #~ msgid "The source code for this website can be found on Github:  "
 #~ msgstr "O código para este site pode ser encontrado no Github: "

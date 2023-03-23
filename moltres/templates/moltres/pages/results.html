@@ -11,12 +11,12 @@
         <div class="text-wrapper">
             <a href="{% url 'moltres:search' %}"><</a>
             {% include 'moltres/partials/charforms.html' %}
-            <h2>Moltres - Search Results</h2>
+            <h2>{% translate 'Moltres - Search Results' %}</h2>
             <div class="results-container">
                 {% if object_list %}
                     {% for name_length in object_list|sort_keys %}
                         <div class="column">
-                            <h3>{{ name_length }} letters</h3>
+                            <h3>{{ name_length }} {% translate 'letters' %}</h3>
                             <ul>
                                 {% with pokemon_list=object_list|get_item:name_length %}
                                     {% for pokemon in pokemon_list %}
@@ -27,7 +27,7 @@
                         </div>
                     {% endfor %}
                 {% else %}
-                    <p>No matches found.</p>
+                    <p>{% translate 'No matches found' %}.</p>
                 {% endif %}
             </div>
         </div>

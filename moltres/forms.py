@@ -1,7 +1,5 @@
 from django import forms
 
-from .models import Pokemon
-
 
 class PokemonNameForm(forms.Form):
     for i in range(10):

@@ -123,7 +123,6 @@
         justify-content: space-between;
     }
 
-
     .main-header-container {
         background: var(--color-primary-dark);
         height: 8rem;
@@ -194,7 +193,6 @@
         width: 100%;
     }
     
-
     .about-text {
         display: flex;
         flex-direction: column;
@@ -264,8 +262,6 @@
         display: flex;
         justify-content: center;
     }
-
-
     
     .flute-form {
         width: 10rem;
@@ -293,7 +289,6 @@
         display: flex;
         flex-direction: column;
     }
-
 
     .main-footer {
         height: 1.5rem;

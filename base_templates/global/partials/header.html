@@ -5,7 +5,7 @@
         <div class="logo-container">
             <h1>
                 <a class="main-logo" href="{% url 'moltres:home' %}">
-                    <span class="main-logo-text">PokeXGames Puzzles</span>
+                    <span class="main-logo-text">{% translate 'PokeXGames Puzzles' %}</span>
                 </a>
             </h1>
         </div>
@@ -13,7 +13,7 @@
             {% if curr_path and curr_path == '/lugia/flute/' %}
                 <h1>
                     <a class="header-link" href="{% url 'lugia:tutorial' %}">
-                        <span class="main-logo-text"><button>Tutorial</button></span>
+                        <span class="main-logo-text"><button>{% translate 'Tutorial' %}</button></span>
                     </a>
                 </h1>
             {% elif curr_path and curr_path == '/' %}

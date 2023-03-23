@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-23 12:27-0300\n"
+"POT-Creation-Date: 2023-03-23 14:00-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,8 +43,17 @@ msgstr ""
 
 #: .\base_templates\global\pages\home.html:14
 #: .\lugia\templates\lugia\pages\flute.html:5
+#: .\lugia\templates\lugia\pages\flute.html:11
 #: .\lugia\templates\lugia\pages\tutorial.html:5
 msgid "Lugia Flute"
+msgstr ""
+
+#: .\base_templates\global\partials\header.html:8
+msgid "PokeXGames Puzzles"
+msgstr ""
+
+#: .\base_templates\global\partials\header.html:16
+msgid "Tutorial"
 msgstr ""
 
 #: .\config\settings\i18n.py:21
@@ -108,9 +117,26 @@ msgid "</br>Good luck, Chosen One!"
 msgstr ""
 
 #: .\moltres\templates\moltres\pages\results.html:7
+#: .\moltres\templates\moltres\pages\results.html:14
 msgid "Moltres - Search Results"
+msgstr ""
+
+#: .\moltres\templates\moltres\pages\results.html:19
+msgid "letters"
+msgstr ""
+
+#: .\moltres\templates\moltres\pages\results.html:30
+msgid "No matches found"
 msgstr ""
 
 #: .\moltres\templates\moltres\pages\search.html:5
 msgid "Moltres Pokémon Search"
+msgstr ""
+
+#: .\moltres\templates\moltres\pages\search.html:11
+msgid "Moltres - Pokémon Search"
+msgstr ""
+
+#: .\moltres\templates\moltres\partials\charforms.html:10
+msgid "Search"
 msgstr ""
