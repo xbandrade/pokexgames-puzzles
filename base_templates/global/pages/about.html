@@ -1,0 +1,17 @@
+{% extends 'global/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% translate 'About' %}{% endblock title %} 
+{% block content %}
+    {% include 'global/partials/messages.html' %}
+    <div class="main-content main-content-list container">
+        <div class="about-text">
+            <p><h2>{% translate '</br>This is NOT an official PokeXGames app.' %}</h2></p>
+            <p><h3>{% translate "You can use this to train your skills on The Chosen One Flute puzzle or obtain answers to Moltres crosswords puzzle." %}</h3></p>
+            <p><h3>{% translate "Github Repository:  " %}
+                <a href="https://github.com/xbandrade/pokexgames-puzzles/"> <i class="fab fa-github fa-lg"> </i>Pokexgames Puzzles</a>
+            </h3></p>
+        </div>
+    </div>
+{% endblock content %}

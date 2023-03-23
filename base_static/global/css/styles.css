@@ -195,6 +195,19 @@
     }
     
 
+    .about-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .about-text h2,
+    .about-text h3 {
+        margin-bottom: 40px;
+    }
+
     .text-wrapper table {
         align-items: center;
         justify-content: center;

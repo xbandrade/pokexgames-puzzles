@@ -15,9 +15,23 @@ class MoltresHome(View):
     template_name = 'global/pages/home.html'
 
     def get(self, request):
+        curr_path = request.path
+        print('path', curr_path)
         context = {
-            'range': range(5),
+            'curr_path': curr_path,
         }
+        return render(
+            self.request,
+            self.template_name,
+            context
+        )
+
+
+class AboutPage(View):
+    template_name = 'global/pages/about.html'
+
+    def get(self, request):
+        context = {}
         return render(
             self.request,
             self.template_name,

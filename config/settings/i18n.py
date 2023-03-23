@@ -5,7 +5,7 @@ from django.utils.translation import gettext_lazy as _
 
 from . import BASE_DIR
 
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'pt-br'
 
 TIME_ZONE = 'America/Sao_Paulo'
 
@@ -19,5 +19,5 @@ LOCALE_PATHS = [
 
 LANGUAGES = [
     ('en', _('English')),
-    ('pt-br', _('Português (Brasil)')),
+    ('pt-br', _('Portuguese (Brazil)')),
 ]

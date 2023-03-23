@@ -9,14 +9,20 @@
                 </a>
             </h1>
         </div>
-        {% if curr_path and curr_path == '/lugia/flute/' %}
         <div class="header-link">
-            <h1>
-                <a class="header-link" href="{% url 'lugia:tutorial' %}">
-                    <span class="main-logo-text"><button>Tutorial</button></span>
-                </a>
-            </h1>
+            {% if curr_path and curr_path == '/lugia/flute/' %}
+                <h1>
+                    <a class="header-link" href="{% url 'lugia:tutorial' %}">
+                        <span class="main-logo-text"><button>Tutorial</button></span>
+                    </a>
+                </h1>
+            {% elif curr_path and curr_path == '/' %}
+                <h1>
+                    <a class="header-link" href="{% url 'moltres:about' %}">
+                        <span class="main-logo-text"><button>{% translate 'About' %}</button></span>
+                    </a>
+                </h1>
+            {% endif %}
         </div>
-        {% endif %}
     </div>
 </header>
