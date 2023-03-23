@@ -9,5 +9,14 @@
                 </a>
             </h1>
         </div>
+        {% if curr_path and curr_path == '/lugia/flute/' %}
+        <div class="header-link">
+            <h1>
+                <a class="header-link" href="{% url 'lugia:tutorial' %}">
+                    <span class="main-logo-text"><button>Tutorial</button></span>
+                </a>
+            </h1>
+        </div>
+        {% endif %}
     </div>
 </header>

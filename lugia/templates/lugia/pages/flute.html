@@ -13,13 +13,16 @@
                 <div class="image-container">
                     <img src="{% static 'global/img/flute.png' %}" alt="Lugia Flute" width="100%">
                     <div class="image-text"></div>
+                    <div class="flute-results"></div>
                 </div>
                 <button id="play-button">{% translate 'Play!' %}</button>
+                <button onclick="location.href='{% url 'lugia:flute' %}'"id="retry-button">{% translate 'Play Again' %}</button>
             </div>
         </div>
     </div>
     <script>
         window.notes = {{ notes|safe }};
+        let successImageUrl = "{% static 'global/img/success.png' %}";
     </script>
     <script src="{% static 'global/js/update.js' %}"></script>
     <audio id="audio-element" src="{% static 'global/music/lugias_song.mp3' %}"></audio>

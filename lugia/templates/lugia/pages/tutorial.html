@@ -1,0 +1,33 @@
+{% extends 'global/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% translate 'Lugia Flute' %}{% endblock title %} 
+{% block content %}
+
+    {% include 'global/partials/messages.html' %}
+    <div class="main-content main-content-list container">
+        <div class="tutorial-text">
+            <h2>{% translate '🎶 Tutorial to Lugia Flute 🎶' %}</h2>
+            <img src="{% static 'global/img/lugia.png' %}" alt="Lugia" width="20%">
+            <h3>{% translate "To play, press the keys on your keyboard that correspond to the musical notes shown on the pillars.</br>" %}</h3>
+            <h3>{% translate "The table below shows which keys to press for each note:" %}</h3>
+            <table>
+                <tr>
+                    <th>Notes</th>
+                    <th>Keys</th>
+                </tr>
+                {% for note, key in notes.items %}
+                    <tr>
+                        <td>{{ note }}</td>
+                        <td>{{ key }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <h3>{% translate "</br>As you play, the background color will change to indicate if you hit the right note.</br>" %}</h3>
+            <h3>{% translate "</br>A blue background means you got it right, while a red background means you missed.</br>" %}</h3>
+            <h3>{% translate "</br>The game consists of 50 notes. To win, you need to have fewer than 7 misses and no more than 8 skips.</br>" %}</h3>
+            <h3>{% translate "</br>Good luck, Chosen One!" %}</h3>
+        </div>
+    </div>
+{% endblock content %}

@@ -67,16 +67,30 @@
         font-family: var(--font-primary);
         background: var(--color-gray-1);
         color: var(--color-dark-text);
-        transition: background-color .5s ease-in-out;
+        transition: background-color .4s ease-in-out;
     }
     
-    
+    table {
+        border-collapse: collapse;
+    }
+
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: center;
+    }
+
+    th {
+        font-weight: bold;
+    }
+
     h1, h2, h3, h4, h5, h6 {
         font-family: var(--font-headings);
     }
     
     img {
         max-width: 100%;
+        transition: filter 1s ease-in-out;
     }
     
     article{ 
@@ -104,23 +118,39 @@
         justify-content: left;
     }
 
+    .main-header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+
     .main-header-container {
         background: var(--color-primary-dark);
         height: 8rem;
         display: flex;
         align-items: center;
-        justify-content: flex-start;
+    }
+    
+    .header-link {
+        margin-left: auto;
     }
     
     .main-logo {
         font-size: 4rem;
         color: var(--color-white);
         text-decoration: none;
-        display: flex;
-        flex-flow: row nowrap;
-        align-items: center;
-        width: fit-content;
-        margin: 0;
+    }
+    
+    .header-link button
+    {
+        font-size: 2rem;
+        font-weight: bold;
+        justify-content: flex-end;
+        padding: 1rem 2rem;
+        border: none;
+        background: var(--color-white);
+        color: var(--color-primary-dark);
+        cursor: pointer;
     }
 
     .main-logo-text {
@@ -148,12 +178,26 @@
         font-size: 1.6rem;
     }
     
+    .tutorial-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
     .text-wrapper {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         width: 100%;
+    }
+    
+
+    .text-wrapper table {
+        align-items: center;
+        justify-content: center;
     }
 
     .text-wrapper button,
@@ -207,6 +251,7 @@
         display: flex;
         justify-content: center;
     }
+
 
     
     .flute-form {
@@ -267,13 +312,13 @@
     .image-container {
         position: relative;
     }
-    
+
     .image-text {
         position: absolute;
         transition: opacity 0.5s;
         color: black;
-        left: 40%;
-        top: 50%;
+        left: 36%;
+        top: 35%;
         font-size: 70px;
         font-weight: 900;
         text-shadow:
@@ -284,12 +329,11 @@
         animation: blink-and-move-up 5s;
     }
     
-    .answers {
+    .flute-results {
         position: absolute;
-        transition: opacity 0.5s;
         color: black;
-        left: 40%;
-        top: 50%;
+        left: 32%;
+        top: 35%;
         font-size: 70px;
         font-weight: 900;
         text-shadow:
@@ -297,16 +341,11 @@
             1px -1px 0 white,
             -1px 1px 0 white,
             1px 1px 0 white;
-        animation: blink-and-move-up 5s;
+        display: none;
+        text-align: center;
     }
 
     @keyframes blink-and-move-up {
-        0% { opacity: .8; top: 50%; }
-        24% { opacity: 0; top: 50%; }
-        100% { opacity: 0; top: 50%; }
-    }
-    
-    @keyframes blink-and-move-up-answers {
         0% { opacity: .8; top: 50%; }
         24% { opacity: 0; top: 50%; }
         100% { opacity: 0; top: 50%; }
@@ -318,6 +357,20 @@
         align-items: flex-start;
     }
     
+    img.blur {
+        filter: blur(3px);
+    }
+
+    .image-container img.top {
+        z-index: 5;
+        opacity: 1;
+    }
+    
+    .image-container img.top.show {
+        z-index: 5;
+        opacity: 1;
+    }
+
     #play-button {
         position: absolute;
         top: 62%;
@@ -333,6 +386,25 @@
         background: #bdd8e7;
         color: var(--color-primary-dark);
         cursor: pointer;
+    }    
+
+
+    #retry-button {
+        position: absolute;
+        top: 79%;
+        left: 49%;
+        transform: translate(-50%, -50%);
+        font-weight: 800;
+        font-size: 20px;
+        border: var(--color-primary-dark);
+        border-width: .3rem;
+        border-style: solid;
+        padding: 1rem 2rem;
+        margin-top: .5rem;
+        background: #bdd8e7;
+        color: var(--color-primary-dark);
+        cursor: pointer;
+        display: none;
     }
 
     .text-wrapper button,
