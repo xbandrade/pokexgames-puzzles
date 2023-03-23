@@ -23,6 +23,7 @@
     <script>
         window.notes = {{ notes|safe }};
         let successImageUrl = "{% static 'global/img/success.png' %}";
+        var currentLanguage = "{{ LANGUAGE_CODE }}";
     </script>
     <script src="{% static 'global/js/update.js' %}"></script>
     <audio id="audio-element" src="{% static 'global/music/lugias_song.mp3' %}"></audio>

@@ -1,6 +1,7 @@
 import random
 
 from django.shortcuts import render
+from django.utils.translation import get_language
 from django.views.generic import View
 
 
@@ -18,6 +19,7 @@ class LugiaFlute(View):
         context = {
             'notes': notes_sequence,
             'curr_path': curr_path,
+            'LANGUAGE_CODE': get_language(),
         }
         return render(
             self.request,

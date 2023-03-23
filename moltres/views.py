@@ -1,7 +1,9 @@
 from collections import defaultdict
 
-from django.http import HttpResponse
+from django.conf import settings
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect, render
+from django.utils import translation
 from django.views.generic import FormView, ListView, View
 
 from moltres.models import Pokemon

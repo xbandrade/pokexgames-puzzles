@@ -9,44 +9,10 @@ let expectedKeys = [];
 let imageText = document.querySelector('.image-text');
 let image = document.querySelector('.image-container img');
 let retryButton;
-
-function updateKeyframes(element) {
-    let styleSheet;
-    for (let i = 0; i < document.styleSheets.length; i++) {
-        if (document.styleSheets[i].href && document.styleSheets[i].href.endsWith('styles.css')) {
-            styleSheet = document.styleSheets[i];
-            break;
-        }
-    }
-    if (!styleSheet) {
-        console.error('Could not find styles.css stylesheet');
-        return;
-    }
-	let keyframeName = 'blink-and-move-up';
-    let keyframesRule;
-
-	for (let i = styleSheet.cssRules.length -1; i >= 0; i--) {
-		if (styleSheet.cssRules[i] instanceof CSSKeyframesRule && styleSheet.cssRules[i].name === keyframeName) {
-			keyframesRule = styleSheet.cssRules[i];
-			break;
-		}
-	}
-
-    if (keyframesRule) {
-        keyframesRule.deleteRule('0%');
-        keyframesRule.deleteRule('24%');
-        keyframesRule.deleteRule('100%');
-
-        let topStart = parseInt(element.style.top);
-        let topEnd = topStart - 10;
-
-        keyframesRule.appendRule(`0% { opacity: .8; top: ${topStart}%; }`);
-        keyframesRule.appendRule(`24% { opacity: 0; top: ${topEnd}%; }`);
-        keyframesRule.appendRule(`100% { opacity: 0; top: ${topEnd}%; }`);
-    }
-}
-
-
+let recursiveTimeout;
+let promiseTimeout;
+let timeoutID;
+let originalBackgroundColor = document.body.style.backgroundColor;
 let originalFontSize = parseInt(window.getComputedStyle(imageText).fontSize);
 let positions = [
 	[10, 47],
@@ -86,10 +52,43 @@ let keysMap = {
 	'G#': ['g', 'G', '#']
 }
 
-let originalBackgroundColor = document.body.style.backgroundColor;
-let recursiveTimeout;
-let promiseTimeout;
-let timeoutID;
+
+function updateKeyframes(element) {
+    let styleSheet;
+    for (let i = 0; i < document.styleSheets.length; i++) {
+        if (document.styleSheets[i].href && document.styleSheets[i].href.endsWith('styles.css')) {
+            styleSheet = document.styleSheets[i];
+            break;
+        }
+    }
+    if (!styleSheet) {
+        console.error('Could not find styles.css stylesheet');
+        return;
+    }
+	let keyframeName = 'blink-and-move-up';
+    let keyframesRule;
+
+	for (let i = styleSheet.cssRules.length -1; i >= 0; i--) {
+		if (styleSheet.cssRules[i] instanceof CSSKeyframesRule && styleSheet.cssRules[i].name === keyframeName) {
+			keyframesRule = styleSheet.cssRules[i];
+			break;
+		}
+	}
+
+    if (keyframesRule) {
+        keyframesRule.deleteRule('0%');
+        keyframesRule.deleteRule('24%');
+        keyframesRule.deleteRule('100%');
+
+        let topStart = parseInt(element.style.top);
+        let topEnd = topStart - 10;
+
+        keyframesRule.appendRule(`0% { opacity: .8; top: ${topStart}%; }`);
+        keyframesRule.appendRule(`24% { opacity: 0; top: ${topEnd}%; }`);
+        keyframesRule.appendRule(`100% { opacity: 0; top: ${topEnd}%; }`);
+    }
+}
+
 
 function updateImageText() {
 	console.log(misses, skips);
@@ -99,7 +98,11 @@ function updateImageText() {
 		const audioElement = document.querySelector('#audio-element');
 		audioElement.pause();
 		let fluteResults = document.querySelector('.flute-results');
-		fluteResults.innerHTML =  `Fail!<br>Skips: ${skips}<br>Misses: ${misses}`;
+		if (currentLanguage == 'pt-br' || currentLanguage == 'pt_br') {
+			fluteResults.innerHTML =  `Falha!<br>Skips: ${skips}<br>Erros: ${misses}`;
+		} else {
+			fluteResults.innerHTML =  `Fail!<br>Skips: ${skips}<br>Misses: ${misses}`;
+		}
 		fluteResults.style.display = 'block';
 		document.body.style.backgroundColor = '#F67280';
 		imageText.style.top = '-200%';
@@ -192,7 +195,11 @@ function updateImageText() {
 		console.log('SUCCESS!');
 		success = true;
 		let fluteResults = document.querySelector('.flute-results');
-		fluteResults.innerHTML =  `Success!<br>Skips: ${skips}<br>Misses: ${misses}`;
+		if (currentLanguage == 'pt-br' || currentLanguage == 'pt_br') {
+			fluteResults.innerHTML =  `Sucesso!<br>Skips: ${skips}<br>Erros: ${misses}`;
+		} else {
+			fluteResults.innerHTML =  `Success!<br>Skips: ${skips}<br>Misses: ${misses}`;
+		}
 		fluteResults.style.display = 'block';
 		document.body.style.backgroundColor = '#77DD77';
 		image.src = successImageUrl;
