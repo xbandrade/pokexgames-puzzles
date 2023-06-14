@@ -9,6 +9,9 @@
     {% include 'global/partials/messages.html' %}
     <div class="main-content main-content-list container">
         <div class="text-wrapper">
+            <div class="warning">
+            <h2><i class="fas fa-exclamation-triangle"></i> {% translate "This website will be discontinued, please access the new version:" %}
+            <a href="https://pxgpuzzles.vercel.app">https://pxgpuzzles.vercel.app</a></h2></div>
             <a href="{% url 'moltres:search' %}"><</a>
             {% include 'moltres/partials/charforms.html' %}
             <h2>{% translate 'Moltres - Search Results' %}</h2>

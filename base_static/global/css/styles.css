@@ -425,3 +425,14 @@
         color: var(--color-white);
         cursor: pointer;
     }
+
+
+    .warning a {
+        background: none;
+        color: var(--color-debug-dark);
+    }
+    
+    .warning {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
