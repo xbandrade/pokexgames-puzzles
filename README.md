@@ -8,6 +8,4 @@ Django deploy: https://pokexgames-puzzles.onrender.com
 
 ## ➡️ New deploy: https://pxgpuzzles.vercel.app
 
-## ➡️ New repository: https://github.com/xbandrade/pxg-puzzles
-
 ## ▶️ Youtube Video: https://www.youtube.com/watch?v=QMYkEly0I3c
