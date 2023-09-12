@@ -1,5 +1,6 @@
 const MAX_MISSES = 6;
 const MAX_SKIPS = 8;
+const MAX_FAIL = 10;
 let index = 0;
 let misses = 0;
 let skips = 0;
@@ -92,7 +93,7 @@ function updateKeyframes(element) {
 
 function updateImageText() {
 	console.log(misses, skips);
-	if (index == 100 || skips > MAX_SKIPS || misses > MAX_MISSES) {
+	if (index == 100 || skips > MAX_SKIPS || misses > MAX_MISSES || skips + misses == MAX_FAIL) {
 		console.log('MAX SKIPS OR MAX MISSES REACHED!');
 		console.log('Stopping music!');
 		const audioElement = document.querySelector('#audio-element');
@@ -158,7 +159,7 @@ function updateImageText() {
 			.then(() => {
 				console.log('Key pressed');
 				timeoutID = setTimeout(() => {
-					if (index < window.notes.length && skips <= MAX_SKIPS && misses <= MAX_MISSES){
+					if (index < window.notes.length && skips <= MAX_SKIPS && misses <= MAX_MISSES && skips + misses <= MAX_FAIL){
 						document.body.style.backgroundColor = originalBackgroundColor;
 					}
 				}, 400);
@@ -168,7 +169,7 @@ function updateImageText() {
 				skips++;
 			})
 			.finally(() => {
-				if (skips > MAX_SKIPS || misses > MAX_MISSES){
+				if (skips > MAX_SKIPS || misses > MAX_MISSES || skips + misses > MAX_FAIL){
 					index = 100;
 					clearTimeout(recursiveTimeout);
 					clearTimeout(promiseTimeout);
